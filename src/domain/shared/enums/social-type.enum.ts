@@ -1,0 +1,6 @@
+export enum SOCIAL_NETWORKS {
+    FACEBOOK = 'FACEBOOK',
+    GOOGLE = 'GOOGLE',
+    LINKEDIN = 'LINKEDIN',
+    TWITTER = 'TWITTER'
+}

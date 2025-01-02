@@ -1,0 +1,48 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+pr:
+  branches:
+    include:
+      - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Build
+    displayName: 'Build Stage'
+    jobs:
+      - job: Build
+        displayName: 'Build and Test'
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '18.x'
+            displayName: 'Install Node.js'
+          - script: |
+              npm install --force
+              npm install webpack
+              npm run build
+              npm run test:cov
+            continueOnError: true
+            displayName: 'npm install and build'
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(Build.SourcesDirectory)'
+              Contents: |
+                **/*
+                !.git/**/*
+                !node_modules/**/*
+              TargetFolder: '$(Build.ArtifactStagingDirectory)'
+            displayName: 'Copy built files'
+          - task: PublishBuildArtifacts@1
+            inputs:
+              pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              artifactName: 'nest-base-3a-mongo-artifacts'
+            displayName: 'Publish artifact'
+          - task: PublishCodeCoverageResults@2
+            inputs:
+              summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
