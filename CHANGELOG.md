@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.3 (2025-01-02)
+
+
+### Features
+
+* Proyecto base auth y users. ([b152fa1](https://github.com/pointblu/api-invrec/commit/b152fa10987f72cf0b1e5586630eb6d85baf5cca))
+
 ### 0.0.2 (2024-06-08)
 
 

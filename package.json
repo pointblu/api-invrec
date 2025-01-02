@@ -1,10 +1,9 @@
 {
   "name": "nest-postgresql",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "author": "Gustavo Erazo",
-  "contributors": [    
-  ],
+  "contributors": [],
   "private": true,
   "license": "MIT",
   "scripts": {
