@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/pointblu/api-invrec/compare/v0.0.3...v0.0.4) (2025-01-04)
+
+
+### Features
+
+* Construcción de modelo, metodos y controllers para manejo de Subscriptions y relacion con Users. ([fa3b8c5](https://github.com/pointblu/api-invrec/commit/fa3b8c5ebc99adaba3266d21e7441556ee58d5da))
+
 ### 0.0.3 (2025-01-02)
 
 
