@@ -1,5 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  OneToOne,
+  JoinColumn,
+} from 'typeorm';
 import { UserRole } from '../../../domain/shared/enums/user-role.enum';
+import { Subscriptions } from './Subscriptions.entity';
 
 @Entity({ name: 'users' })
 export class Users {
@@ -40,4 +49,10 @@ export class Users {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updated_at: Date;
+
+  @OneToOne(() => Subscriptions, (subscription) => subscription.user, {
+    eager: true,
+  }) // eager: true para popular la suscripción automáticamente
+  @JoinColumn({ name: 'subscription_id' })
+  subscription: Subscriptions;
 }

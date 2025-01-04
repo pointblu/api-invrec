@@ -10,6 +10,7 @@ import { DatabaseModule } from './infrastructure/database/database.module';
 import { LoggingMiddleware } from 'infrastructure/rest/middleware/http.midleware';
 import { AuthModule } from 'infrastructure/ioc/auth.module';
 import * as dotenv from 'dotenv';
+import { SubscriptionsModule } from 'infrastructure/ioc/subscriptions.module';
 dotenv.config();
 @Module({
   imports: [
@@ -26,6 +27,7 @@ dotenv.config();
     }).module,
     AuthModule,
     UsersModule,
+    SubscriptionsModule,
   ],
   controllers: [],
   providers: [JwtService, LocalStrategy, JwtStrategy],
